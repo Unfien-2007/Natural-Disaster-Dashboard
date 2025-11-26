@@ -129,7 +129,18 @@
         // Render news articles
         function renderNews() {
             const container = document.getElementById('articlesContainer');
-            container.innerHTML = disasterNews.map(article => `
+            
+            if (filteredNews.length === 0) {
+                container.innerHTML = `
+                    <div style="text-align: center; padding: 40px; background: white; border-radius: 12px; color: #666;">
+                        <p style="font-size: 1.2em; margin-bottom: 10px;">🔍 No disasters found</p>
+                        <p>Try adjusting your search terms</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            container.innerHTML = filteredNews.map(article => `
                 <div class="article-card" onclick="openModal(${article.id})">
                     <div class="article-image">${article.icon}</div>
                     <div class="article-content">
@@ -229,8 +240,65 @@
             }
         }
 
-        // Initialize on page load
+        // Search functionality
+        let filteredNews = [...disasterNews];
+
+        function filterNews(searchTerm) {
+            if (!searchTerm.trim()) {
+                filteredNews = [...disasterNews];
+            } else {
+                const term = searchTerm.toLowerCase();
+                filteredNews = disasterNews.filter(article => 
+                    article.title.toLowerCase().includes(term) ||
+                    article.category.toLowerCase().includes(term) ||
+                    article.description.toLowerCase().includes(term) ||
+                    article.affectedArea.toLowerCase().includes(term)
+                );
+            }
+            renderNews();
+        }
+
+        // Search input event listener
         document.addEventListener('DOMContentLoaded', () => {
             renderNews();
             renderEmergencyContacts();
+
+            const searchInput = document.getElementById('searchInput');
+            const clearSearch = document.getElementById('clearSearch');
+
+            searchInput.addEventListener('input', (e) => {
+                const value = e.target.value;
+                filterNews(value);
+                clearSearch.style.display = value ? 'flex' : 'none';
+            });
+
+            clearSearch.addEventListener('click', () => {
+                searchInput.value = '';
+                clearSearch.style.display = 'none';
+                filterNews('');
+            });
+
+            // Smooth scroll for navigation links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const href = link.getAttribute('href');
+                    if (href.startsWith('#')) {
+                        const targetId = href.substring(1);
+                        const targetElement = document.getElementById(targetId) || 
+                            (targetId === 'home' ? document.querySelector('.container') : null) ||
+                            (targetId === 'disasters' ? document.querySelector('.news-section') : null) ||
+                            (targetId === 'emergency' ? document.querySelector('.emergency-section') : null) ||
+                            (targetId === 'about' ? document.querySelector('.about-section') : null);
+                        
+                        if (targetElement) {
+                            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }
+                    
+                    // Update active state
+                    document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
+                });
+            });
         });

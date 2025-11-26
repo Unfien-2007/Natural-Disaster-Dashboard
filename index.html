@@ -7,21 +7,81 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-icon">🌍</span>
+                <span class="logo-text">Disaster Dashboard</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
+                <li class="nav-item"><a href="#disasters" class="nav-link">Disasters</a></li>
+                <li class="nav-item"><a href="#emergency" class="nav-link">Emergency</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
     <div class="container">
+        <!-- Search Bar -->
+        <div class="search-container">
+            <div class="search-wrapper">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="searchInput" class="search-input" placeholder="Search disasters by title, category, or location...">
+                <button class="search-clear" id="clearSearch" style="display: none;">✕</button>
+            </div>
+        </div>
+
         <header>
             <h1>🌍 Natural Disaster Dashboard</h1>
             <p>Stay informed about recent natural disasters and emergency contacts in your community</p>
         </header>
 
         <div class="main-content">
-            <div class="news-section">
+            <div class="news-section" id="disasters">
                 <h2>Recent Disasters</h2>
                 <div class="news-articles" id="articlesContainer"></div>
             </div>
+        </div>
 
-            <div class="emergency-section">
-                <h2>Emergency Contacts</h2>
-                <div id="emergencyContainer"></div>
+        <div class="emergency-section" id="emergency">
+            <h2>Emergency Contacts</h2>
+            <div id="emergencyContainer"></div>
+        </div>
+
+        <div class="about-section" id="about">
+            <div class="about-content">
+                <h2>About This Dashboard</h2>
+                <div class="about-grid">
+                    <div class="about-card">
+                        <div class="about-icon">🎯</div>
+                        <h3>Our Mission</h3>
+                        <p>To provide real-time information about natural disasters and emergency resources to help communities stay safe and prepared. We believe that timely access to critical information can save lives.</p>
+                    </div>
+                    <div class="about-card">
+                        <div class="about-icon">📊</div>
+                        <h3>Real-Time Updates</h3>
+                        <p>Our dashboard aggregates disaster information from multiple sources to give you the most current and accurate data about natural disasters happening around the world.</p>
+                    </div>
+                    <div class="about-card">
+                        <div class="about-icon">🆘</div>
+                        <h3>Emergency Resources</h3>
+                        <p>Quick access to emergency contact numbers and resources when you need them most. All emergency contacts are verified and updated regularly.</p>
+                    </div>
+                    <div class="about-card">
+                        <div class="about-icon">🔍</div>
+                        <h3>Search & Filter</h3>
+                        <p>Easily search and filter disasters by type, location, severity, or date to find the information most relevant to you and your community.</p>
+                    </div>
+                </div>
+                <div class="about-footer">
+                    <h3>Stay Informed, Stay Safe</h3>
+                    <p>This dashboard is designed to help you make informed decisions during natural disasters. Always follow official guidance from local authorities and emergency services.</p>
+                    <div class="about-disclaimer">
+                        <p><strong>Disclaimer:</strong> This dashboard provides information for general awareness purposes. In case of an actual emergency, always contact your local emergency services immediately.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
