@@ -26,6 +26,7 @@ Week 6 QA Desition/Bug Fixing and Finalizing Output(Dec 4 - Dec 9)
 
 Final Day (Dec 10)
 
+<<<<<<< Updated upstream
 
 
 
@@ -33,3 +34,18 @@ Final Day (Dec 10)
 EMERGENCY CONTACT SOURCES
 -https://assistance.ph/philippine-emergency-hotline-numbers/
 -https://e911.gov.ph/emergency-hotline-numbers/
+=======
+Source:
+
+https://newsinfo.inquirer.net/2118480/cebu-earthquake-death-toll-rises-to-72-aftershocks-continue
+
+https://www.philstar.com/the-freeman/cebu-news/2025/11/25/2489730/dangerous-rains-over-cebu-pagasa-verbena-may-trigger-flashfloods
+
+https://www.unocha.org/publications/report/philippines/philippines-super-typhoon-uwanfung-wong-consolidated-rapid-assessment-report-20-november-2025
+
+https://newsinfo.inquirer.net/2043063/wildfire-razes-section-of-mountain-in-zambales-tourist-town
+
+https://newsinfo.inquirer.net/2117756/taal-volcano-erupts-phivolcs
+
+https://www.rappler.com/philippines/luzon/benguet-landslide-super-typhoon-nando-september-22-2025/
+>>>>>>> Stashed changes
